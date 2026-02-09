@@ -1,0 +1,32 @@
+# Application Configuration
+
+app:
+  name: "Astrology & Numerology API"
+  version: "1.0.0"
+  description: "Complete astrology, numerology, and tarot reading service"
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+
+openai:
+  model: "gpt-4o-mini"
+  max_tokens: 500
+  temperature: 0.7
+
+astrology:
+  default_location:
+    lat: 23.8103
+    lon: 90.4125
+    tz: 6.0
+  sidereal_mode: "LAHIRI"
+
+cors:
+  allow_origins:
+    - "*"
+  allow_credentials: true
+  allow_methods:
+    - "*"
+  allow_headers:
+    - "*"

@@ -10,7 +10,8 @@ from app.api.v1.endpoints import (
     numerology,
     analysis,
     tarot,
-    rag_support
+    rag_support,
+    video_gen
 )
 from app.config import settings
 import datetime
@@ -38,6 +39,7 @@ app.include_router(numerology.router, prefix="/api", tags=["Numerology"])
 app.include_router(analysis.router, prefix="/api", tags=["Analysis"])
 app.include_router(tarot.router, prefix="/api", tags=["Tarot"])
 app.include_router(rag_support.router, prefix="/api/v1", tags=["Chat & RAG Support"])
+app.include_router(video_gen.router, prefix="/api", tags=["Video Generation"])
 
 
 @app.get("/")

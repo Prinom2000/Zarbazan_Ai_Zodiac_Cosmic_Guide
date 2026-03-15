@@ -1,17 +1,26 @@
 """
 Application Configuration
 """
-
 import os
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 
+load_dotenv()
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Astrology & Numerology API"
     VERSION: str = "1.0.0"
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "your-api-key-here")
-    BASE_URL: str = os.getenv("BASE_URL", "http://72.61.158.79")
-    
+
+    # API Keys
+    OPENAI_API_KEY: str
+    HEYGEN_API_KEY: str
+    CLOUDINARY_CLOUD_NAME: str
+    CLOUDINARY_API_KEY: str
+    CLOUDINARY_API_SECRET: str
+
+    # App Config
+    BASE_URL: str = "http://72.61.158.79"
+
     class Config:
         env_file = ".env"
         case_sensitive = True

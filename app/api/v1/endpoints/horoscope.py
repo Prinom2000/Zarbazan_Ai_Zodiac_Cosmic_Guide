@@ -67,6 +67,7 @@ async def daily_horoscope(person: PersonInput):
         return {
             "success": True,
             "data": {
+                "user_id": person.user_id,
                 "name": person.name,
                 "zodiac_sign": sun_sign,
                 "sun_position": {
@@ -141,6 +142,7 @@ async def extended_horoscope(person: PersonInput):
         return {
             "success": True,
             "data": {
+                "user_id": person.user_id,
                 "name": person.name,
                 "zodiac_sign": sun_sign,
                 "weekly_horoscope": weekly_horoscope,

@@ -49,6 +49,7 @@ async def numerology_analysis(person: PersonInput):
         return {
             "success": True,
             "data": {
+                "user_id": person.user_id,
                 "name": person.name,
                 "numerology_numbers": {
                     "life_path": life_path,

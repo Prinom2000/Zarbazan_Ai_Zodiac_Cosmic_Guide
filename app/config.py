@@ -14,9 +14,6 @@ class Settings(BaseSettings):
     # API Keys
     OPENAI_API_KEY: str
     HEYGEN_API_KEY: str
-    CLOUDINARY_CLOUD_NAME: str
-    CLOUDINARY_API_KEY: str
-    CLOUDINARY_API_SECRET: str
 
     # App Config
     BASE_URL: str = "http://72.61.158.79"

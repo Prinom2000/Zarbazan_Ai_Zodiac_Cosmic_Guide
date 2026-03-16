@@ -5,6 +5,7 @@ Video Generation Endpoints
 import os
 import time
 import requests
+import datetime
 from fastapi import APIRouter, HTTPException
 from app.schemas import PersonInput, TarotInput, TwoPersonInput
 import openai
@@ -27,6 +28,8 @@ async def horoscope_video(person: PersonInput):
     creates video with HeyGen, uploads to Cloudinary, and returns text & video link.
     """
     try:
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         # Generate horoscope summary using OpenAI
         prompt = f"""Generate a personalized daily horoscope summary for {person.name}, born on {person.birth_date} at {person.birth_time} in {person.birth_place}.
 
@@ -118,6 +121,8 @@ async def horoscope_video(person: PersonInput):
         
         return {
             "success": True,
+            "user_id": person.user_id,
+            "date": current_date,
             "data": {
                 "horoscope_text": summary_text,
                 "video_link": video_url
@@ -136,6 +141,8 @@ async def numerology_video(person: PersonInput):
     creates video with HeyGen, and returns text & video link.
     """
     try:
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         # Generate numerology summary using OpenAI
         prompt = f"""Generate a personalized numerology summary for {person.name}, born on {person.birth_date}.
 
@@ -226,6 +233,8 @@ async def numerology_video(person: PersonInput):
         
         return {
             "success": True,
+            "user_id": person.user_id,
+            "date": current_date,
             "data": {
                 "numerology_text": summary_text,
                 "video_link": video_url
@@ -244,6 +253,8 @@ async def tarot_video(data: TarotInput):
     creates video with HeyGen, and returns text & video link.
     """
     try:
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         cards_str = ", ".join(data.cards)
         # Generate tarot reading using OpenAI
         prompt = f"""Generate a detailed tarot reading for the cards: {cards_str}.
@@ -335,6 +346,8 @@ async def tarot_video(data: TarotInput):
         
         return {
             "success": True,
+            "user_id": data.user_id,
+            "date": current_date,
             "data": {
                 "tarot_text": summary_text,
                 "video_link": video_url
@@ -353,6 +366,8 @@ async def compatibility_video(data: TwoPersonInput):
     creates video with HeyGen, and returns text & video link.
     """
     try:
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         # Generate compatibility analysis using OpenAI
         prompt = f"""Generate a detailed compatibility analysis between {data.person1.name} (born {data.person1.birth_date}) and {data.person2.name} (born {data.person2.birth_date}).
 
@@ -444,6 +459,8 @@ async def compatibility_video(data: TwoPersonInput):
         
         return {
             "success": True,
+            "user_id": data.user_id,
+            "date": current_date,
             "data": {
                 "compatibility_text": summary_text,
                 "video_link": video_url
@@ -462,6 +479,8 @@ async def clarification_card_video(data: TarotInput):
     creates video with HeyGen, and returns text & video link.
     """
     try:
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         cards_str = ", ".join(data.cards)
         # Generate short summary using OpenAI
         prompt = f"""Provide a short summary of the tarot cards: {cards_str}.
@@ -553,6 +572,8 @@ async def clarification_card_video(data: TarotInput):
         
         return {
             "success": True,
+            "user_id": data.user_id,
+            "date": current_date,
             "data": {
                 "clarification_text": summary_text,
                 "video_link": video_url

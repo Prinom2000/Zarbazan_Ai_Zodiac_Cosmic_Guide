@@ -41,6 +41,7 @@ async def tarot_reading(tarot_data: TarotInput):
         return {
             "success": True,
             "data": {
+                "user_id": tarot_data.user_id,
                 "cards_drawn": tarot_data.cards,
                 "overall_message": overall_message,
                 "card_explanations": card_explanations,

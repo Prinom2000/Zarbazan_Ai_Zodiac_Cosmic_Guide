@@ -61,7 +61,7 @@ async def compatibility_analysis(data: TwoPersonInput):
         
         growth_prompt = f"""Identify growth areas for the relationship between {data.person1.name} and {data.person2.name}.
         Their scores: Family {scores['Family']}%, Longevity {scores['Longevity']}%, Overall {scores['Overall']}%.
-        Provide 3 specific areas where they can grow together."""
+        Provide 3 specific areas where they can grow together. 3-4 sentences."""
         
         emotional_bond = ai_service.generate_content(emotional_prompt)
         communication = ai_service.generate_content(communication_prompt)
@@ -70,6 +70,7 @@ async def compatibility_analysis(data: TwoPersonInput):
         return {
             "success": True,
             "data": {
+                "user_id": data.person1.user_id,
                 "person1": {
                     "name": data.person1.name,
                     "nakshatra": nakshatras[nak_idx1]

@@ -1,14 +1,14 @@
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
+fastapi
+uvicorn[standard]
 # pydantic==2.5.3
 pydantic
-pydantic-settings==2.1.0
-python-multipart==0.0.6
-pyswisseph==2.10.3.2
-geopy==2.4.1
-timezonefinder==6.2.0
-pytz==2023.3
-python-dotenv==1.0.0
+pydantic-settings
+python-multipart
+pyswisseph
+geopy
+timezonefinder
+pytz
+python-dotenv
 
 # do: pip install -r requirements.txt
 

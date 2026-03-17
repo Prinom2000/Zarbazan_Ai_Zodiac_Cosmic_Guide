@@ -1,5 +1,21 @@
-.env
-*.pyc
+# Python-generated files
 __pycache__/
-node_modules/
+*.py[oc]
+build/
 dist/
+wheels/
+*.egg-info
+.idea
+
+# Virtual environments
+.venv
+.env
+
+# Folders
+temp/
+logs
+notebook
+
+uv.lock
+
+service_account.json
